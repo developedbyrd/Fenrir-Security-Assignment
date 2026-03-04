@@ -108,14 +108,14 @@ export default function LoginPage() {
           </div>
 
           <div className="w-full lg:w-1/2 max-w-md lg:mr-12 xl:mr-16 shrink-0">
-            <div className="bg-white rounded-3xl p-8 shadow-2xl">
+            <div className="bg-white rounded-3xl p-8 shadow-2xl flex items-center justify-center flex-col">
               <h2 className="text-4xl font-bold text-black mb-2">Sign up</h2>
 
-              <p className="text-sm text-gray-500 mb-8">
+              <p className="text-sm text-black mt-3 mb-5">
                 Already have an account?{" "}
                 <a
                   href="#"
-                  className="text-blue-600 hover:underline font-semibold"
+                  className="text-gray-400 underline"
                 >
                   Log in
                 </a>
@@ -203,7 +203,7 @@ export default function LoginPage() {
                   {isLoading ? "Creating account..." : "Create account"}
                 </button>
 
-                <div className="flex gap-3 mt-6 pt-2">
+                <div className="flex gap-3 pt-2">
                   <button
                     type="button"
                     className="flex-1 py-3 rounded-full border-2 border-gray-200 text-black font-medium hover:bg-gray-50 transition-colors flex items-center justify-center cursor-pointer"
