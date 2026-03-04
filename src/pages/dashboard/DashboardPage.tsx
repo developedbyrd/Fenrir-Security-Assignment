@@ -110,19 +110,19 @@ const severityStats = [
     label: "Critical Severity",
     val: 86,
     sub: "+25 increase than yesterday",
-    icon: <Ban className="w-4 h-4 dark:text-gray-900" />,
+    icon: <Ban className="w-4 h-4" style={{ color: "var(--color-text)" }} />,
   },
   {
     label: "High Severity",
     val: 16,
     sub: "+0.9% increase than yesterday",
-    icon: <TriangleAlert className="w-4 h-4 dark:text-gray-900" />,
+    icon: <TriangleAlert className="w-4 h-4" style={{ color: "var(--color-text)" }} />,
   },
   {
     label: "Medium Severity",
     val: 26,
     sub: "+0.9% decrease than yesterday",
-    icon: <TriangleAlert className="w-4 h-4 dark:text-gray-900" />,
+    icon: <TriangleAlert className="w-4 h-4" style={{ color: "var(--color-text)" }} />,
   },
   {
     label: "Low Severity",
@@ -167,24 +167,24 @@ export default function DashboardPage() {
   ] as const;
 
   return (
-    <div className="p-6 lg:p-8 space-y-6 bg-zinc-50">
-      <div className="p-3 bg-white rounded">
-        <div className="bg-topbar border-topbarBorder pb-10">
+    <div className="p-6 lg:p-8 space-y-6" style={{ backgroundColor: "var(--color-bg)" }}>
+      <div className="p-3 rounded" style={{ backgroundColor: "var(--color-card)" }}>
+        <div className="border-b pb-10" style={{ backgroundColor: "var(--color-card)", borderColor: "var(--color-topbarBorder)" }}>
           <div className="flex flex-wrap items-center gap-6 text-sm">
             {STATS_ITEMS.map((item, index) => (
               <div key={item.label} className="flex items-center">
                 <div className="flex items-center gap-2">
-                  <span className="text-gray-400">{item.label}</span>
+                  <span style={{ color: "var(--color-textMuted)" }}>{item.label}</span>
                   <span className="font-semibold text-text">{item.value}</span>
                 </div>
 
                 {index < STATS_ITEMS.length - 1 && (
-                  <span className="text-gray-400 ml-6">|</span>
+                  <span style={{ color: "var(--color-textMuted)" }} className="ml-6">|</span>
                 )}
               </div>
             ))}
 
-            <div className="flex items-center gap-1 text-gray-500 ml-auto">
+            <div className="flex items-center gap-1 ml-auto" style={{ color: "var(--color-textMuted)" }}>
               <RefreshCcw className="w-4 h-4" />
               <span>10 mins ago</span>
             </div>
@@ -200,7 +200,7 @@ export default function DashboardPage() {
                   <span className="text-sm text-textMuted font-medium">
                     {stat.label}
                   </span>
-                  <div className="w-7 h-7 rounded bg-badge flex items-center justify-center bg-[#ededed]">
+                  <div className="w-7 h-7 rounded flex items-center justify-center" style={{ backgroundColor: "var(--color-badge)" }}>
                     {stat.icon}
                   </div>
                 </div>
@@ -219,7 +219,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="space-y-4 bg-white p-3 rounded">
+      <div className="space-y-4 p-3 rounded" style={{ backgroundColor: "var(--color-card)" }}>
         <div className="flex flex-col lg:flex-row gap-3">
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-textMuted" />
@@ -228,7 +228,8 @@ export default function DashboardPage() {
               placeholder="Search scans by name or type..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 border border-border bg-white text-text placeholder-textSub rounded-lg text-sm focus:outline-none"
+              className="w-full pl-10 pr-4 py-2.5 border border-border text-text placeholder-textSub rounded-lg text-sm focus:outline-none"
+              style={{ backgroundColor: "var(--color-input)" }}
             />
           </div>
           <div className="flex gap-2 lg:shrink-0">
@@ -240,7 +241,7 @@ export default function DashboardPage() {
               <Columns2 className="w-4 h-4" />
               Column
             </button>
-            <button className="px-3 py-2.5 bg-btnPrimary text-btnPrimaryText rounded text-sm font-medium hover:opacity-90 transition-colors flex items-center gap-2 bg-[#818181] text-white cursor-pointer">
+            <button className="px-3 py-2.5 rounded text-sm font-medium hover:opacity-90 transition-colors flex items-center gap-2 cursor-pointer" style={{ backgroundColor: "var(--color-btnPrimary)", color: "var(--color-btnPrimaryText)" }}>
               <Plus className="w-4 h-4" />
               New scan
             </button>
@@ -288,10 +289,10 @@ export default function DashboardPage() {
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-2">
-                        <div className="w-24 h-2 bg-gray-200 dark:bg-gray-100 rounded-full overflow-hidden">
+                        <div className="w-24 h-2 rounded-full overflow-hidden" style={{ backgroundColor: "var(--color-progressBg)" }}>
                           <div
-                            className="h-full bg-gray-600 dark:bg-gray-500 rounded-full"
-                            style={{ width: `${row.prog}%` }}
+                            className="h-full rounded-full"
+                            style={{ width: `${row.prog}%`, backgroundColor: "var(--color-progressFill)" }}
                           />
                         </div>
                         <span className="text-xs text-textMuted w-8">
@@ -304,7 +305,8 @@ export default function DashboardPage() {
                         {row.vuln.map((v, idx) => (
                           <span
                             key={idx}
-                            className="w-6 h-6 rounded bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium flex items-center justify-center"
+                            className="w-6 h-6 rounded text-xs font-medium flex items-center justify-center"
+                            style={{ backgroundColor: "var(--color-vuln)", color: "var(--color-vulnText)" }}
                           >
                             {v}
                           </span>
