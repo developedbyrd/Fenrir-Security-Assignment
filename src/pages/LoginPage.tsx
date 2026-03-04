@@ -48,7 +48,7 @@ export default function LoginPage() {
         <div className="flex items-center justify-between px-6 lg:px-12 pt-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-black/10 dark:bg-white/30 backdrop-blur-sm flex items-center justify-center shrink-0">
-              <div className="w-6 h-6 rounded-full bg-linear-to-br from-teal-300 to-orange-300" />
+              <div className="w-4 h-4 rounded-full bg-white" />
             </div>
             <span className="text-black dark:text-white font-medium text-base">
               aps

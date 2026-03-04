@@ -232,18 +232,8 @@ export function Sidebar() {
       <div className="flex flex-col h-full">
         <div className="h-20 flex items-center justify-between px-2 lg:px-4 border-b border-sidebarBorder">
           <div className="hidden lg:flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-badge flex items-center justify-center">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-              </svg>
+            <div className="w-10 h-10 rounded-full bg-gray-500 backdrop-blur-sm flex items-center justify-center shrink-0">
+              <div className="w-4 h-4 rounded-full bg-white" />
             </div>
             <span className="font-bold text-base text-text">aps</span>
           </div>
