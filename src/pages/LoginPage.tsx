@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Eye, EyeOff, Apple, Globe } from "lucide-react";
+import { Eye, EyeOff, Globe } from "lucide-react";
+import { FaApple } from "react-icons/fa";
+import { FaMeta } from "react-icons/fa6";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function LoginPage() {
@@ -41,25 +43,22 @@ export default function LoginPage() {
 
   return (
     <main className="relative min-h-screen overflow-hidden">
-      {/* Background */}
       <div className="fixed inset-0 z-0 bg-white dark:bg-linear-to-br dark:from-slate-900 dark:via-teal-800 dark:to-orange-600" />
 
-      {/* Content overlay */}
       <div className="relative z-10 min-h-screen flex flex-col">
-        {/* Header */}
         <div className="flex items-center justify-between px-6 lg:px-12 pt-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-black/10 dark:bg-white/30 backdrop-blur-sm flex items-center justify-center shrink-0">
               <div className="w-6 h-6 rounded-full bg-linear-to-br from-teal-300 to-orange-300" />
             </div>
-            <span className="text-black dark:text-white font-medium text-base">aps</span>
+            <span className="text-black dark:text-white font-medium text-base">
+              aps
+            </span>
           </div>
           <ThemeToggle />
         </div>
 
-        {/* Main content */}
         <div className="flex-1 flex items-center justify-end px-6 lg:px-0 py-8 lg:py-0">
-          {/* Left side - Hero (hidden on mobile) */}
           <div className="hidden lg:flex absolute left-0 inset-y-0 w-1/2 flex-col justify-center px-12">
             <div className="max-w-md space-y-8">
               <div className="space-y-3">
@@ -102,13 +101,14 @@ export default function LoginPage() {
                 </div>
                 <p className="text-black dark:text-white text-sm">
                   Rated <span className="font-bold">4.5/5.0</span>{" "}
-                  <span className="text-gray-500 dark:text-gray-300">(100k+ reviews)</span>
+                  <span className="text-gray-500 dark:text-gray-300">
+                    (100k+ reviews)
+                  </span>
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right side - Form card */}
           <div className="w-full lg:w-1/2 max-w-md lg:mr-12 xl:mr-16 shrink-0">
             <div className="bg-white dark:bg-zinc-900 rounded-3xl p-8 lg:p-10 shadow-2xl">
               {/* Form header */}
@@ -118,13 +118,15 @@ export default function LoginPage() {
 
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">
                 Already have an account?{" "}
-                <a href="#" className="text-accent hover:underline font-semibold">
+                <a
+                  href="#"
+                  className="text-accent hover:underline font-semibold"
+                >
                   Log in
                 </a>
               </p>
 
               <form onSubmit={handleCreateAccount} className="space-y-4">
-                {/* First name */}
                 <input
                   type="text"
                   name="firstName"
@@ -134,7 +136,6 @@ export default function LoginPage() {
                   className="w-full px-4 py-3.5 rounded-lg border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-transparent transition-colors"
                 />
 
-                {/* Last name */}
                 <input
                   type="text"
                   name="lastName"
@@ -144,7 +145,6 @@ export default function LoginPage() {
                   className="w-full px-4 py-3.5 rounded-lg border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-transparent transition-colors"
                 />
 
-                {/* Email */}
                 <input
                   type="email"
                   name="email"
@@ -154,7 +154,6 @@ export default function LoginPage() {
                   className="w-full px-4 py-3.5 rounded-lg border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-transparent transition-colors"
                 />
 
-                {/* Password */}
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
@@ -167,13 +166,16 @@ export default function LoginPage() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
                   >
-                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                    {showPassword ? (
+                      <EyeOff className="w-5 h-5" />
+                    ) : (
+                      <Eye className="w-5 h-5" />
+                    )}
                   </button>
                 </div>
 
-                {/* Terms */}
                 <div className="flex items-start gap-3 pt-2">
                   <input
                     type="checkbox"
@@ -194,11 +196,10 @@ export default function LoginPage() {
                   </label>
                 </div>
 
-                {/* Submit button */}
                 <button
                   type="submit"
                   disabled={!isFormValid || isLoading}
-                  className={`w-full py-3.5 rounded-full font-semibold transition-all mt-8 ${
+                  className={`w-full py-3.5 rounded-full font-semibold transition-all mt-8 cursor-pointer ${
                     isFormValid && !isLoading
                       ? "bg-accent text-accent-foreground hover:bg-accent/90 cursor-pointer"
                       : "bg-gray-100 dark:bg-zinc-800 text-gray-400 dark:text-zinc-500 cursor-not-allowed"
@@ -207,25 +208,24 @@ export default function LoginPage() {
                   {isLoading ? "Creating account..." : "Create account"}
                 </button>
 
-                {/* Social login */}
                 <div className="flex gap-3 mt-6 pt-2">
                   <button
                     type="button"
-                    className="flex-1 py-3 rounded-full bg-black dark:bg-zinc-800 text-white font-medium hover:bg-gray-800 dark:hover:bg-zinc-700 transition-colors flex items-center justify-center"
+                    className="flex-1 py-3 rounded-full border-2 border-gray-200 dark:border-zinc-600 text-black dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors flex items-center justify-center cursor-pointer"
                   >
-                    <Apple className="w-5 h-5" />
+                    <FaApple size={20} />
                   </button>
                   <button
                     type="button"
-                    className="flex-1 py-3 rounded-full border-2 border-gray-200 dark:border-zinc-600 text-black dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors flex items-center justify-center"
+                    className="flex-1 py-3 rounded-full border-2 border-gray-200 dark:border-zinc-600 text-black dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors flex items-center justify-center cursor-pointer"
                   >
                     <Globe className="w-5 h-5" />
                   </button>
                   <button
                     type="button"
-                    className="flex-1 py-3 rounded-full border-2 border-gray-200 dark:border-zinc-600 text-black dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors flex items-center justify-center"
+                    className="flex-1 py-3 rounded-full border-2 border-gray-200 dark:border-zinc-600 text-black dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors flex items-center justify-center cursor-pointer"
                   >
-                    <Globe className="w-5 h-5" />
+                    <FaMeta size={20} />
                   </button>
                 </div>
               </form>
