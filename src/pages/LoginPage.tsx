@@ -55,7 +55,6 @@ export default function LoginPage() {
               aps
             </span>
           </div>
-          <ThemeToggle />
         </div>
 
         <div className="flex-1 flex items-center justify-end px-6 lg:px-0 py-8 lg:py-0">
@@ -110,17 +109,14 @@ export default function LoginPage() {
           </div>
 
           <div className="w-full lg:w-1/2 max-w-md lg:mr-12 xl:mr-16 shrink-0">
-            <div className="bg-white dark:bg-zinc-900 rounded-3xl p-8 lg:p-10 shadow-2xl">
-              {/* Form header */}
-              <h2 className="text-4xl font-bold text-black dark:text-white mb-2">
-                Sign up
-              </h2>
+            <div className="bg-white rounded-3xl p-8 shadow-2xl">
+              <h2 className="text-4xl font-bold text-black mb-2">Sign up</h2>
 
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">
+              <p className="text-sm text-gray-500 mb-8">
                 Already have an account?{" "}
                 <a
                   href="#"
-                  className="text-accent hover:underline font-semibold"
+                  className="text-blue-600 hover:underline font-semibold"
                 >
                   Log in
                 </a>
@@ -133,7 +129,7 @@ export default function LoginPage() {
                   placeholder="First name*"
                   value={formData.firstName}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3.5 rounded-lg border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3.5 rounded-lg border border-gray-200 bg-white text-black placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400/40 focus:border-transparent transition-colors"
                 />
 
                 <input
@@ -142,7 +138,7 @@ export default function LoginPage() {
                   placeholder="Last name*"
                   value={formData.lastName}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3.5 rounded-lg border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3.5 rounded-lg border border-gray-200 bg-white text-black placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400/40 focus:border-transparent transition-colors"
                 />
 
                 <input
@@ -151,7 +147,7 @@ export default function LoginPage() {
                   placeholder="Email address*"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3.5 rounded-lg border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3.5 rounded-lg border border-gray-200 bg-white text-black placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400/40 focus:border-transparent transition-colors"
                 />
 
                 <div className="relative">
@@ -161,12 +157,12 @@ export default function LoginPage() {
                     placeholder="Password (8+ characters)*"
                     value={formData.password}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3.5 rounded-lg border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-transparent transition-colors pr-10"
+                    className="w-full px-4 py-3.5 rounded-lg border border-gray-200 bg-white text-black placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-400/40 focus:border-transparent transition-colors pr-10"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black transition-colors cursor-pointer"
                   >
                     {showPassword ? (
                       <EyeOff className="w-5 h-5" />
@@ -183,11 +179,11 @@ export default function LoginPage() {
                     name="terms"
                     checked={formData.terms}
                     onChange={handleInputChange}
-                    className="w-4 h-4 rounded border-gray-300 dark:border-zinc-600 mt-1 cursor-pointer accent-accent"
+                    className="w-4 h-4 rounded border-gray-300 mt-1 cursor-pointer accent-blue-600"
                   />
                   <label
                     htmlFor="terms"
-                    className="text-xs text-black dark:text-white cursor-pointer leading-relaxed"
+                    className="text-xs text-black cursor-pointer leading-relaxed"
                   >
                     I agree to Aps's{" "}
                     <span className="font-semibold">Terms of Service</span> and
@@ -199,10 +195,10 @@ export default function LoginPage() {
                 <button
                   type="submit"
                   disabled={!isFormValid || isLoading}
-                  className={`w-full py-3.5 rounded-full font-semibold transition-all mt-8 cursor-pointer ${
+                  className={`w-full py-3.5 rounded-full font-semibold transition-all mt-8 ${
                     isFormValid && !isLoading
-                      ? "bg-accent text-accent-foreground hover:bg-accent/90 cursor-pointer"
-                      : "bg-gray-100 dark:bg-zinc-800 text-gray-400 dark:text-zinc-500 cursor-not-allowed"
+                      ? "bg-blue-600 text-white hover:bg-blue-700 cursor-pointer"
+                      : "bg-gray-100 text-gray-400 cursor-not-allowed"
                   }`}
                 >
                   {isLoading ? "Creating account..." : "Create account"}
@@ -211,19 +207,19 @@ export default function LoginPage() {
                 <div className="flex gap-3 mt-6 pt-2">
                   <button
                     type="button"
-                    className="flex-1 py-3 rounded-full border-2 border-gray-200 dark:border-zinc-600 text-black dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors flex items-center justify-center cursor-pointer"
+                    className="flex-1 py-3 rounded-full border-2 border-gray-200 text-black font-medium hover:bg-gray-50 transition-colors flex items-center justify-center cursor-pointer"
                   >
                     <FaApple size={20} />
                   </button>
                   <button
                     type="button"
-                    className="flex-1 py-3 rounded-full border-2 border-gray-200 dark:border-zinc-600 text-black dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors flex items-center justify-center cursor-pointer"
+                    className="flex-1 py-3 rounded-full border-2 border-gray-200 text-black font-medium hover:bg-gray-50 transition-colors flex items-center justify-center cursor-pointer"
                   >
                     <Globe className="w-5 h-5" />
                   </button>
                   <button
                     type="button"
-                    className="flex-1 py-3 rounded-full border-2 border-gray-200 dark:border-zinc-600 text-black dark:text-white font-medium hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors flex items-center justify-center cursor-pointer"
+                    className="flex-1 py-3 rounded-full border-2 border-gray-200 text-black font-medium hover:bg-gray-50 transition-colors flex items-center justify-center cursor-pointer"
                   >
                     <FaMeta size={20} />
                   </button>
