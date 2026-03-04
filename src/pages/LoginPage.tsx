@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Globe } from "lucide-react";
 import { FaApple } from "react-icons/fa";
 import { FaMeta } from "react-icons/fa6";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function LoginPage() {
   const navigate = useNavigate();
